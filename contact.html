@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promo.in | Web Social SEO</title>
+    <style>
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    background-color: #f5f5f5;
+}
+
+/* Green Hero Section */
+.green-background {
+    background-color: #006837;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    text-align: center;
+}
+
+/* Hero Heading */
+.green-background h1 {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    font-size: 14px;
+    font-weight: 600;
+    opacity: 0.8;
+}
+
+/* Header Styling */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 5px;
+    background-color: white;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 1470px;
+    border-radius: 20px;
+    margin-top: -160px; /* Rounded edges */
+}
+
+/* Logo Styling */
+.logo {
+    display: flex;
+    align-items: center;
+    
+}
+
+.logo-text {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1d8b15;
+    display: flex;
+    align-items: baseline;
+    margin-left: 20px;
+}
+.logo-text sub {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #0A8F00;
+    margin-left: 3px;
+}
+.logo-subtext {
+    font-size: 10px;
+    font-weight: 700;
+    color: #081207;
+    margin-top: -10px;
+    
+}
+
+/* Navigation Bar */
+.nav-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px; 
+    padding: 0;
+    margin-left: 20px;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #000;
+    font-size: 17px;
+    font-weight: 550;
+    transition: color 0.3s;
+   
+}
+
+nav ul li a:hover {
+    color: #006837;
+}
+
+/* Contact Button */
+.contact-btn {
+    background-color: white;
+    border: 2px solid #006837;
+    color: #006837;
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s;
+    font-weight: bold;
+    margin-left: 750px;
+}
+
+.contact-btn:hover {
+    background-color: #006837;
+    color: white;
+}
+
+.hero h1{
+
+    margin-top: 50px;
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+    }
+
+    nav {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    nav ul {
+        flex-direction: row; /* Ensures menu remains horizontal */
+        gap: 12px;
+      
+    }
+
+    .contact-btn {
+        margin-top: 10px;
+    }
+
+    .green-background h1 {
+        font-size: 30px;
+    }
+}
+
+
+
+
+        .contact-section {
+            padding: 50px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+
+        .contact-nav {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap; 
+    gap: 10px; 
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s 0.4s forwards;
+}
+
+.contact-nav hr {
+    flex: 0 0 40px; 
+    height: 2px;
+    background-color: #006837 !important;
+    border: none;
+    margin: 0;
+}
+
+.contact-nav h3 {
+    white-space: nowrap; 
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+
+        .contact-heading {
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s 0.6s forwards;
+        }
+
+        .contact-heading h2 {
+            font-size: 30px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .contact-content {
+            display: flex;
+            width: 100%;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .contact-form {
+            flex: 1;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s 0.8s forwards;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 5px;
+            border: none;
+            background-color: #5f5f5f25;
+            font-size: 14px;
+        }
+
+        textarea.form-control {
+            height: 150px;
+            resize: none;
+        }
+
+        .contact-info {
+    max-width: 400px; 
+    width: 100%; 
+    background-color: #006837;
+    border-radius: 5px;
+    padding: 30px;
+    color: white;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s 1s forwards;
+}
+
+
+        .address-section h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .address-section p {
+            font-size: 14px;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .contact-info-section {
+            margin-bottom: 20px;
+        }
+
+        .contact-info-section h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .contact-info-section p {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .open-time {
+            margin-bottom: 20px;
+        }
+
+        .open-time h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .open-time p {
+            font-size: 14px;
+        }
+
+        .social-section h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-icon {
+            width: 30px;
+            height: 30px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #006837;
+            transition: all 0.3s;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px);
+        }
+
+        .send-btn {
+            background-color: transparent;
+            border: 1px solid #006837;
+            color: #006837;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .send-btn:hover {
+            background-color: #006837;
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #006837;
+            color: white;
+            padding: 40px;
+            margin-top: 300px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-left {
+            max-width: 300px;
+        }
+
+        .footer-left p {
+            font-size: 12px;
+            margin-top: 15px;
+            line-height: 1.5;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-section h4 {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .nav-section ul {
+            list-style: none;
+        }
+
+        .nav-section ul li {
+            margin-bottom: 8px;
+        }
+
+        .nav-section ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            transition: opacity 0.3s;
+        }
+
+        .nav-section ul li a:hover {
+            opacity: 0.8;
+        }
+
+        .copyright {
+            text-align: center;
+            padding: 20px;
+            background-color: #006837;
+            color: rgba(255,255,255,0.7);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 12px;
+        }
+
+        .copyright a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s;
+        }
+
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+            }
+            
+            .contact-content {
+                flex-direction: column;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .footer-nav {
+                flex-direction: column;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="green-background">
+        <!-- White header inside green background -->
+        <header>
+            <div class="logo">
+                <div>
+                    <span class="logo-text">PROMO<sub>Grp</sub></span>
+                    <span class="logo-subtext">YOUR DIGITAL SUPPORTER</span>
+                </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About us</a></li> 
+                    <li><a href="#">Service</a></li>
+                    <li><a href="#">Previous work</a></li>
+                </ul>
+            </nav>
+            <button class="contact-btn">Contact us</button>
+            </div>
+
+        </header>
+
+        <!-- Hero Section - Below the white header -->
+        <section class="hero">
+            <h1>Contact Us</h1>
+            <div class="breadcrumb">Home / <span style="color: #eddfdf71;">Contact Us</span> </div>
+        </section>
+    </div>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="contact-nav scroll-reveal">
+            <hr style="background-color: #006837;"> <h3>Contact Us</h3>
+        </div>
+        <div class="contact-heading scroll-reveal">
+            <h2>Join Us in Creating<br>Something Amazing.</h2>
+        </div>
+        <div class="contact-content">
+           <!-- Contact Form -->
+<div class="contact-form scroll-reveal">
+    <form id="contactForm">
+        <div class="form-group">
+            <input type="text" name="name" class="form-control" placeholder="Name*" required>
+        </div>
+        <div class="form-group" style="display: flex; gap: 15px;">
+            <input type="email" name="email" class="form-control" placeholder="Email*" required>
+            <input type="tel" name="phone" class="form-control" placeholder="Phone Number*" required>
+        </div>
+        <div class="form-group">
+            <input type="text" name="subject" class="form-control" placeholder="Subject*" required>
+        </div>
+        <div class="form-group">
+            <textarea name="message" class="form-control" placeholder="Message*" required></textarea>
+        </div>
+        <button type="submit" class="send-btn">Send Message</button>
+    </form>
+    <div id="message"></div>
+</div>
+            
+            <!-- Contact Info -->
+            <div class="contact-info scroll-reveal">
+                <div class="address-section">
+                    <h3>Address</h3>
+                    <p>2nd Floor<br>Friends Ln, Chembukkavu, Vathakara<br>Kalathodu, Kerala 682005<br>India</p>
+                </div>
+                <div class="contact-info-section">
+                    <h3>Contact</h3>
+                    <p>Phone : +91 8606 667 636</p>
+                    <p>Email : promoguru5m@gmail.com</p>
+                </div>
+                <div class="open-time">
+                    <h3>Open Time</h3>
+                    <p>Monday - Friday : 09:00 - 08:00</p>
+                </div>
+                <div class="social-section">
+                    <h3>Stay Connected</h3>
+                    <div class="social-icons">
+                        <div class="social-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M13.601 2.399A7.948 7.948 0 0 0 8 0C3.582 0 0 3.582 0 8c0 1.411.369 2.785 1.066 3.992L0 16l4.129-1.036A7.94 7.94 0 0 0 8 16c4.418 0 8-3.582 8-8a7.948 7.948 0 0 0-2.399-5.601zM8 14.438a6.42 6.42 0 0 1-3.313-.889l-.237-.141-2.449.614.653-2.386-.153-.244A6.432 6.432 0 0 1 1.563 8c0-3.549 2.888-6.437 6.437-6.437a6.43 6.43 0 0 1 4.556 1.882 6.43 6.43 0 0 1 1.882 4.556c0 3.549-2.888 6.437-6.437 6.437z"/>
+                                <path d="M11.114 9.307c-.156-.079-.924-.457-1.068-.51-.143-.054-.248-.079-.353.079-.105.157-.404.51-.496.617-.091.105-.181.118-.338.04-.157-.079-.663-.243-1.263-.773-.466-.415-.78-.93-.872-1.086-.092-.157-.009-.242.07-.32.072-.072.157-.182.235-.273.079-.092.105-.157.157-.262.052-.104.026-.197-.014-.273-.04-.079-.353-.847-.484-1.16-.127-.303-.256-.262-.353-.266-.092-.004-.196-.007-.3-.007s-.273.04-.416.197c-.143.157-.545.533-.545 1.3s.558 1.511.636 1.617c.079.105 1.098 1.678 2.664 2.284.373.16.665.255.892.327.375.118.717.101.986.061.3-.045.924-.378 1.054-.742.13-.364.13-.677.091-.743-.04-.066-.143-.105-.3-.183z"/>
+                            </svg>
+                    </div>
+                    <div class="social-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+                        </svg>
+                    </div>
+                        <div class="social-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+                            </svg>
+                        </div>
+                        
+                          
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-left">
+                <div class="logo">
+                    <img src="/api/placeholder/100/30" alt="Promo.in Logo">
+                    <div class="tagline">WEB SOCIAL SEO+</div>
+                </div>
+                <p>We are a vibrant video production firm committed to assisting people in expanding their social media presence by producing cutting-edge videos.</p>
+                <div class="footer-social">
+                    <div class="social-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M13.601 2.399A7.948 7.948 0 0 0 8 0C3.582 0 0 3.582 0 8c0 1.411.369 2.785 1.066 3.992L0 16l4.129-1.036A7.94 7.94 0 0 0 8 16c4.418 0 8-3.582 8-8a7.948 7.948 0 0 0-2.399-5.601zM8 14.438a6.42 6.42 0 0 1-3.313-.889l-.237-.141-2.449.614.653-2.386-.153-.244A6.432 6.432 0 0 1 1.563 8c0-3.549 2.888-6.437 6.437-6.437a6.43 6.43 0 0 1 4.556 1.882 6.43 6.43 0 0 1 1.882 4.556c0 3.549-2.888 6.437-6.437 6.437z"/>
+                            <path d="M11.114 9.307c-.156-.079-.924-.457-1.068-.51-.143-.054-.248-.079-.353.079-.105.157-.404.51-.496.617-.091.105-.181.118-.338.04-.157-.079-.663-.243-1.263-.773-.466-.415-.78-.93-.872-1.086-.092-.157-.009-.242.07-.32.072-.072.157-.182.235-.273.079-.092.105-.157.157-.262.052-.104.026-.197-.014-.273-.04-.079-.353-.847-.484-1.16-.127-.303-.256-.262-.353-.266-.092-.004-.196-.007-.3-.007s-.273.04-.416.197c-.143.157-.545.533-.545 1.3s.558 1.511.636 1.617c.079.105 1.098 1.678 2.664 2.284.373.16.665.255.892.327.375.118.717.101.986.061.3-.045.924-.378 1.054-.742.13-.364.13-.677.091-.743-.04-.066-.143-.105-.3-.183z"/>
+                        </svg>
+                </div>
+                <div class="social-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+                    </svg>
+                </div>
+                    <div class="social-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+                        </svg>
+                    </div>
+                   
+                    
+                </div>
+            </div>
+            <div class="footer-nav">
+                <div class="nav-section">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html">About us</a></li>
+                        <li><a href="index.html#services">Service</a></li>
+                        <li><a href="index.html#work">Previous work</a></li>
+                    </ul>
+                </div>
+                <div class="nav-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="#">+91 8606 667 636</a></li>
+                        <li><a href="#">promogrp.tm@gmail.com</a></li>
+                        <li><a href="#">285F+HCJ</a></li>
+                        <li><a href="#">Friends Ln,Chembumukku,Vazhakkala</a></li>
+                        <li><a href="#">Kakkanad, Kerala 682030</a></li>
+                        <li><a href="#">Inda</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            Copyright © 2024 Promo Group.All Rights Reserved
+        </div>
+    </footer>
+
+    <script src="script.js">
+        // Scroll animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const scrollReveal = document.querySelectorAll('.scroll-reveal');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            scrollReveal.forEach(element => {
+                observer.observe(element);
+            });
+            
+            // Form validation
+            const form = document.querySelector('.contact-form');
+            const sendBtn = document.querySelector('.send-btn');
+            
+            if (form && sendBtn) {
+                sendBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Simple form validation
+                    const inputs = form.querySelectorAll('input, textarea');
+                    let isValid = true;
+                    
+                    inputs.forEach(input => {
+                        if (!input.value.trim()) {
+                            input.style.border = '1px solid red';
+                            isValid = false;
+                        } else {
+                            input.style.border = 'none';
+                        }
+                    });
+                    
+                    if (isValid) {
+                        //alert('Message sent successfully!');
+                        inputs.forEach(input => input.value = '');
+                    } else {
+                        alert('Please fill in all required fields.');
+                    }
+                });
+            }
+            
+            // Smooth scrolling for navigation links
+            const navLinks = document.querySelectorAll('nav a');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Get the target section (for a real website)
+                    // const targetId = this.getAttribute('href').substring(1);
+                    // const targetSection = document.getElementById(targetId);
+                    
+                    // For demo purposes just scroll to top
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Contact button functionality
+            const contactBtn = document.querySelector('.contact-btn');
+            
+            if (contactBtn) {
+                contactBtn.addEventListener('click', function() {
+                    // For demonstration, just scroll to contact form
+                    const contactSection = document.querySelector('.contact-section');
+                    if (contactSection) {
+                        contactSection.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

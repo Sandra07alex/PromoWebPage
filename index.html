@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROMO - Your Digital Supporter</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: white;
+            color: #000;
+            overflow-x: hidden;
+        }
+
+        /* Header and Navigation */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            position: sticky;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        /* Logo Styling */
+.logo {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.logo-text {
+    font-size: 2.2rem;
+    font-weight:900;
+    color: #1d8b15; /* Dark Green */
+    display: flex;
+    align-items: baseline;
+}
+
+.logo-text sub {
+    font-size: 0.8rem; /* Smaller Grp */
+    font-weight: normal; /* Not bold */
+    color: #0A8F00;
+    margin-left: 2px;
+}
+
+.logo-subtext {
+    font-size: 10px;
+    color: #333;
+    position: absolute;
+    top: 100%;
+    margin-top: -6px;
+    left: 0;
+    white-space: nowrap;
+    font-weight:700;
+}
+
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav li {
+            margin: 0 15px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #000;
+            font-size: 1.1rem;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #0A8F00;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #0A8F00;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .contact-button {
+            border: 2px solid #000;
+            padding: 8px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #000;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .contact-button:hover {
+            background-color: #0A8F00;
+            border-color: #0A8F00;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .main-content {
+            display: flex;
+            padding: 50px;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 80vh;
+        }
+
+        .left-content {
+            width: 50%;
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: fadeInLeft 1s forwards;
+        }
+
+        .right-content {
+            width: 40%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .question-mark-image {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            opacity: 0;
+            transform: scale(0.8);
+            animation: scaleIn 1s 0.3s forwards;
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .hero-heading {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-heading .highlight {
+            color: #0A8F00;
+            display: block;
+        }
+
+        .hero-desc {
+            font-size: 1.2rem;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+
+        .book-button {
+            border: 2px solid #000;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #000;
+            font-weight: 500;
+            display: inline-block;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .book-button:hover {
+            background-color: #0A8F00;
+            border-color: #0A8F00;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(10, 143, 0, 0.2);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background-color: #0A7B46;
+            color: white;
+            padding: 20px 30px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            max-width: 750px;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(10, 123, 70, 0.3);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s 0.5s forwards;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .stat-number {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            opacity: 0;
+            animation: countUp 2s 1s forwards;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+        }
+
+        .services-section {
+            padding: 80px 50px;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #333;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .section-description {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 60px;
+            line-height: 1.6;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .services-grid {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .service-card {
+            flex: 1 1 250px;
+            max-width: 280px;
+            padding: 30px 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: white;
+            transition: transform 0.3s ease-in-out;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+        
+        .service-card:hover:hover {
+    transform: scale(1.1);
+}
+        
+        .green-circle {
+            width: 80px;
+            height: 80px;
+            background-color: #0A7B46;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .green-circle::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            left: -100%;
+            top: 0;
+            transform: skewX(-15deg);
+            transition: all 0.5s ease;
+        }
+
+        .service-card:hover .green-circle::after {
+            left: 100%;
+        }
+        
+        .service-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .service-description {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #666;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 900px) {
+            .services-grid {
+                justify-content: center;
+            }
+            
+            .service-card {
+                max-width: 320px;
+            }
+        }
+
+        .event-coverages-section {
+            padding: 80px 50px;
+            background-color: white;
+        }
+        
+        .services-label {
+            display: inline-block;
+            padding: 10px 25px;
+            background-color: #0A7B46;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 25px;
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .coverages-grid {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .coverage-card {
+            flex: 1 1 250px;
+            max-width: 280px;
+            min-height: 200px;
+            padding: 20px;
+            background-color: #222;
+            border-radius: 15px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+        
+        .coverage-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            background-color: #1a1a1a;
+        }
+        
+        .coverage-title {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .coverage-preview {
+            width: 80px;
+            height: 80px;
+            background-color: #c2ffd3;
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .coverage-card:hover .coverage-preview {
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 5px 15px rgba(194, 255, 211, 0.3);
+        }
+        
+        .view-more-btn {
+            display: flex;
+            align-items: center;
+            color: #ccc;
+            margin-top: auto;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        
+        .view-more-btn:hover {
+            color: white;
+        }
+        
+        .arrow-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background-color: #0A7B46;
+            color: white;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .view-more-btn:hover .arrow-icon {
+            transform: translateX(5px);
+            background-color: #0ca355;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 900px) {
+            .coverages-grid {
+                justify-content: center;
+            }
+            
+            .coverage-card {
+                max-width: 320px;
+            }
+        }
+
+        footer {
+            background-color: #006837;
+            color: white;
+            padding: 40px;
+            margin-top: 300px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-left {
+            max-width: 300px;
+        }
+
+        .footer-left p {
+            font-size: 12px;
+            margin-top: 15px;
+            line-height: 1.5;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-section h4 {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .nav-section ul {
+            list-style: none;
+        }
+
+        .nav-section ul li {
+            margin-bottom: 8px;
+        }
+
+        .nav-section ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            transition: opacity 0.3s;
+        }
+
+        .nav-section ul li a:hover {
+            opacity: 0.8;
+        }
+
+        .copyright {
+            text-align: center;
+            padding: 20px;
+            background-color: #006837;
+            color: rgba(255,255,255,0.7);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 12px;
+        }
+
+        .copyright a {
+            color: white;
+            text-decoration: none;
+        }
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes countUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .right-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.question-mark-image {
+    width: 1500px;  /* Adjust size as needed */
+    height: auto;
+}
+
+    </style>
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header id="top">
+        <div class="logo">
+            <div>
+                <span class="logo-text">PROMO<sub>Grp</sub></span>
+                <span class="logo-subtext">YOUR DIGITAL SUPPORTER</span>
+            </div>
+        </div>
+        
+        <nav>
+            <ul>
+                <li><a href="#top">Home</a></li>
+                <li><a href="#about">About us</a></li>
+                <li><a href="#services">Service</a></li>
+                <li><a href="#work">Previous work</a></li>
+            </ul>
+        </nav>
+        
+        <a href="contact.html" class="contact-button">Contact us</a>
+    </header>
+    
+    <!-- Main Content -->
+    <section class="main-content">
+        <div class="left-content">
+            <h1 class="hero-heading">
+                  Professionally Navigating 
+                 The <span class="highlight">Digital World</span>
+            </h1>
+            <p class="hero-desc">
+                We are a vibrant video production firm committed to assisting people in expanding their social media presence by producing cutting-edge videos.
+            </p>
+            <a href="#contact" class="book-button">Book Now</a>
+            
+            <!-- Stats Section -->
+            <div class="stats-section">
+                <div class="stat-item">
+                    <div class="stat-number">250</div>
+                    <div class="stat-label">Videos Created</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">45</div>
+                    <div class="stat-label">Brands Worked with</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">Member Team</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="right-content">
+            <img src="p.jpg" alt="Question Mark Image" class="question-mark-image">
+        </div>
+        
+    </section>
+    
+    <!-- Removed the green curve background element -->
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">How We Enhance Your Content</h2>
+            <p class="section-description animate-on-scroll">
+                At Promo Group, our focus is on producing amazing content that narrates your distinct story.<br>
+                This is how we go about it:
+            </p>
+            
+            <div class="services-grid">
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <div class="green-circle"></div>
+                    </div>
+                    <h3 class="service-title">Making</h3>
+                    <p class="service-description">
+                        Our gifted staff works their magic, making sure your brand shines in every snap.
+                    </p>
+                </div>
+                
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <div class="green-circle"></div>
+                    </div>
+                    <h3 class="service-title">Making</h3>
+                    <p class="service-description">
+                        Our gifted staff works their magic, making sure your brand shines in every snap.
+                    </p>
+                </div>
+                
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <div class="green-circle"></div>
+                    </div>
+                    <h3 class="service-title">Editing</h3>
+                    <p class="service-description">
+                        We meticulously polish your content in order to ensure that it flows naturally and engages the audience.
+                    </p>
+                </div>
+                
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <div class="green-circle"></div>
+                    </div>
+                    <h3 class="service-title">Content Integrity</h3>
+                    <p class="service-description">
+                        Your Ideas, Your Exclusivity: We never use your creative concepts for other people, so your content is always unique and exceptional.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Coverages Section -->
+    <section id="work" class="event-coverages-section">
+        <div class="container">
+            <div class="services-label animate-on-scroll">services</div>
+            
+            <div class="coverages-grid">
+                <div class="coverage-card animate-on-scroll">
+                    <h3 class="coverage-title">Event Coverages</h3>
+                    <div class="coverage-preview"></div>
+                    <div class="view-more-btn">
+                        <div class="arrow-icon">➔</div>
+                        <span>View More</span>
+                    </div>
+                </div>
+                
+                <div class="coverage-card animate-on-scroll">
+                    <h3 class="coverage-title">Event Coverages</h3>
+                    <div class="view-more-btn">
+                        <div class="arrow-icon">➔</div>
+                        <span>View More</span>
+                    </div>
+                </div>
+                
+                <div class="coverage-card animate-on-scroll">
+                    <h3 class="coverage-title">Event Coverages</h3>
+                    <div class="view-more-btn">
+                        <div class="arrow-icon">➔</div>
+                        <span>View More</span>
+                    </div>
+                </div>
+                
+                <div class="coverage-card animate-on-scroll">
+                    <h3 class="coverage-title">Event Coverages</h3>
+                    <div class="view-more-btn">
+                        <div class="arrow-icon">➔</div>
+                        <span>View More</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-left">
+                <div class="logo">
+                    <img src="/api/placeholder/100/30" alt="Promo.in Logo">
+                    <div class="tagline">WEB SOCIAL SEO+</div>
+                </div>
+                <p>We are a vibrant video production firm committed to assisting people in expanding their social media presence by producing cutting-edge videos.</p>
+                <div class="footer-social">
+                    <div class="social-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M13.601 2.399A7.948 7.948 0 0 0 8 0C3.582 0 0 3.582 0 8c0 1.411.369 2.785 1.066 3.992L0 16l4.129-1.036A7.94 7.94 0 0 0 8 16c4.418 0 8-3.582 8-8a7.948 7.948 0 0 0-2.399-5.601zM8 14.438a6.42 6.42 0 0 1-3.313-.889l-.237-.141-2.449.614.653-2.386-.153-.244A6.432 6.432 0 0 1 1.563 8c0-3.549 2.888-6.437 6.437-6.437a6.43 6.43 0 0 1 4.556 1.882 6.43 6.43 0 0 1 1.882 4.556c0 3.549-2.888 6.437-6.437 6.437z"/>
+                            <path d="M11.114 9.307c-.156-.079-.924-.457-1.068-.51-.143-.054-.248-.079-.353.079-.105.157-.404.51-.496.617-.091.105-.181.118-.338.04-.157-.079-.663-.243-1.263-.773-.466-.415-.78-.93-.872-1.086-.092-.157-.009-.242.07-.32.072-.072.157-.182.235-.273.079-.092.105-.157.157-.262.052-.104.026-.197-.014-.273-.04-.079-.353-.847-.484-1.16-.127-.303-.256-.262-.353-.266-.092-.004-.196-.007-.3-.007s-.273.04-.416.197c-.143.157-.545.533-.545 1.3s.558 1.511.636 1.617c.079.105 1.098 1.678 2.664 2.284.373.16.665.255.892.327.375.118.717.101.986.061.3-.045.924-.378 1.054-.742.13-.364.13-.677.091-.743-.04-.066-.143-.105-.3-.183z"/>
+                        </svg>
+                </div>
+                <div class="social-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+                    </svg>
+                </div>
+                    <div class="social-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+                        </svg>
+                    </div>
+                   
+                    
+                </div>
+            </div>
+            <div class="footer-nav">
+                <div class="nav-section">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html">About us</a></li>
+                        <li><a href="index.html#services">Service</a></li>
+                        <li><a href="index.html#work">Previous work</a></li>
+                    </ul>
+                </div>
+                <div class="nav-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="#">+91 8606 667 636</a></li>
+                        <li><a href="#">promogrp.tm@gmail.com</a></li>
+                        <li><a href="#">285F+HCJ</a></li>
+                        <li><a href="#">Friends Ln,Chembumukku,Vazhakkala</a></li>
+                        <li><a href="#">Kakkanad, Kerala 682030</a></li>
+                        <li><a href="#">Inda</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            Copyright © 2024 Promo Group.All Rights Reserved
+        </div>
+    </footer>
+
+
+    <!-- Back to Top Button -->
+    <a href="#top" class="back-to-top">↑</a>
+
+    <!-- JavaScript for animations -->
+    <script>
+        // Show/hide back-to-top button based on scroll position
+        window.addEventListener('scroll', function() {
+            const backToTopButton = document.querySelector('.back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+            
+            // Header scroll effect
+            const header = document.querySelector('header');
+            if (window.pageYOffset > 50) {
+                header.style.padding = '10px 50px';
+                header.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.padding = '20px 50px';
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            }
+            
+            // Animate elements when they come into view
+            const animateElements = document.querySelectorAll('.animate-on-scroll');
+            animateElements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (elementPosition < windowHeight - 100) {
+                    element.classList.add('animated');
+                }
+            });
+        });
+
+        // Counter animation for stats
+        function animateCounter(element, targetValue) {
+            let current = 0;
+            const increment = targetValue / 100;
+            const timer = setInterval(function() {
+                current += increment;
+                element.textContent = Math.floor(current);
+                if (current >= targetValue) {
+                    element.textContent = targetValue;
+                    clearInterval(timer);
+                }
+            }, 20);
+        }
+
+        // Initialize counters when they come into view
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumbers = document.querySelectorAll('.stat-number');
+                    statNumbers.forEach(stat => {
+                        const targetValue = parseInt(stat.textContent);
+                        stat.textContent = '0';
+                        setTimeout(() => {
+                            animateCounter(stat, targetValue);
+                        }, 500);
+                    });
+                    observer.unobserve(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(document.querySelector('.stats-section'));
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
